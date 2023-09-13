@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'editpage.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -23,11 +23,30 @@ class _HomeState extends State<Home> {
         title: const Text('Mobile App CV'),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const EditPage()));
-              },
-              icon: const Icon(Icons.edit))
+            onPressed: () async {
+              Map<String, String?> result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditPage(
+                    fullName: fullName,
+                    slackUsername: slackUsername,
+                    githubHandle: githubHandle,
+                    bio: bio,
+                  ),
+                ),
+              );
+
+              if (result.isNotEmpty) {
+                setState(() {
+                  fullName = result['fullName']!;
+                  slackUsername = result['slackUsername']!;
+                  githubHandle = result['githubHandle']!;
+                  bio = result['bio']!;
+                });
+              }
+            },
+            icon: const Icon(Icons.edit),
+          )
         ],
       ),
       body: Padding(
@@ -66,3 +85,5 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+

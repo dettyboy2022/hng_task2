@@ -19,22 +19,28 @@ class _HomeState extends State<Home> {
   String education =
       'Federal University Oye-Ekiti: Agricultural Economics and Extension';
   String experience =
-      '''- Circle Dodge Systems: Mobile App Developer\n   - Developed and maintained mobile applications for clients, ensuring seamless user experiences.
-   - Collaborated with cross-functional teams to design, develop, and deploy new features.
-   - Conducted code reviews and provided mentorship to junior developers.
+      '''- Circle Dodge Systems: Mobile App Developer\n   . Developed and maintained mobile applications for clients, ensuring seamless user experiences.
+   . Collaborated with cross-functional teams to design, develop, and deploy new features.
+   . Conducted code reviews and provided mentorship to junior developers.
 
-- Freelance Developer: Web & Mobile Developer\n   - Led the design team in creating intuitive and visually appealing user interfaces.
-   - Conducted user research and usability testing to refine product designs.
-   - Collaborated with developers to implement designs and iterate on user feedback.
+- Freelance Developer: Web & Mobile Developer\n   . Led the design team in creating intuitive and visually appealing user interfaces.
+   . Conducted user research and usability testing to refine product designs.
+  . Collaborated with developers to implement designs and iterate on user feedback.
 ''';
-  String projects = ''' - E-commerce App.\n - Movie Ticketing App ''';
+  String projects =
+      ''' - E-commerce App.\n   .  A simple E-commerce App to help users get items available from the app.
+
+- Movie Ticketing App\n   .   A movie ticketign App to help you select movie available and book time ,date and cinema experience you want.
+
+- LiveScore UI Design App\n   .   UI design for a sports App.
+       ''';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
-        backgroundColor: Colors.black26,
+        backgroundColor: Colors.grey.shade900,
         title: const Text(
           'Mobile App CV',
           style: TextStyle(color: Colors.white),
@@ -83,61 +89,73 @@ class _HomeState extends State<Home> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Center(
-                child: CircleAvatar(
-                  radius: 100,
-                  backgroundImage: AssetImage('assets/profilepic.jpg'),
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7),
+                  color: Colors.grey.shade800,
                 ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              CustomText(
-                text: 'Full Name: $fullName',
-              ),
-              const SizedBox(
-                height: 7,
-              ),
-              CustomText(text: 'Slack Username: $slackUsername'),
-              const SizedBox(
-                height: 7,
-              ),
-              CustomText(text: 'GitHub Handle: $githubHandle'),
-              const SizedBox(
-                height: 7,
-              ),
-              const Row(
-                children: [
-                  Icon(
-                    Icons.location_on_outlined,
-                    color: Colors.white,
-                  ),
-                  CustomText(text: ' : Lagos, Nigeria'),
-                ],
-              ),
-              const SizedBox(
-                height: 7,
-              ),
-              const Row(
-                children: [
-                  Icon(
-                    Icons.mail,
-                    color: Colors.white,
-                  ),
-                  CustomText(text: ' : charlesayomide@hotmail.com')
-                ],
-              ),
-              const SizedBox(
-                height: 7,
-              ),
-              const Row(
-                children: [
-                  Icon(
-                    Icons.phone,
-                    color: Colors.white,
-                  ),
-                  CustomText(text: ' : +2349020551592')
-                ],
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Center(
+                      child: CircleAvatar(
+                        radius: 80,
+                        backgroundImage: AssetImage('assets/profilepic.jpg'),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomText(
+                      text: 'Full Name: $fullName',
+                    ),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    CustomText(text: 'Slack Username: $slackUsername'),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    CustomText(text: 'GitHub Handle: $githubHandle'),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.white,
+                        ),
+                        CustomText(text: ' : Lagos, Nigeria'),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(
+                          Icons.mail,
+                          color: Colors.white,
+                        ),
+                        CustomText(text: ' : charlesayomide@hotmail.com')
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    const Row(
+                      children: [
+                        Icon(
+                          Icons.phone,
+                          color: Colors.white,
+                        ),
+                        CustomText(text: ' : +2349020551592')
+                      ],
+                    ),
+                  ],
+                ),
               ),
               const Divider(),
               const Text(

@@ -52,9 +52,9 @@ class _EditPageState extends State<EditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black26,
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
-        backgroundColor: Colors.black26,
+        backgroundColor: Colors.grey.shade900,
         iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Edit CV',

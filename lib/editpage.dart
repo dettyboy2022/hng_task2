@@ -7,6 +7,8 @@ class EditPage extends StatefulWidget {
   final String bio;
   final String skills;
   final String education;
+  final String experience;
+  final String projects;
 
   const EditPage({
     Key? key,
@@ -16,6 +18,8 @@ class EditPage extends StatefulWidget {
     required this.bio,
     required this.skills,
     required this.education,
+    required this.experience,
+    required this.projects,
   }) : super(key: key);
 
   @override
@@ -29,6 +33,8 @@ class _EditPageState extends State<EditPage> {
   TextEditingController bioController = TextEditingController();
   TextEditingController skillsController = TextEditingController();
   TextEditingController educationController = TextEditingController();
+  TextEditingController experienceController = TextEditingController();
+  TextEditingController projectsController = TextEditingController();
 
   @override
   void initState() {
@@ -39,6 +45,8 @@ class _EditPageState extends State<EditPage> {
     bioController.text = widget.bio;
     skillsController.text = widget.skills;
     educationController.text = widget.education;
+    experienceController.text = widget.experience;
+    projectsController.text = widget.projects;
   }
 
   @override
@@ -47,6 +55,7 @@ class _EditPageState extends State<EditPage> {
       backgroundColor: Colors.black26,
       appBar: AppBar(
         backgroundColor: Colors.black26,
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'Edit CV',
           style: TextStyle(color: Colors.white),
@@ -59,50 +68,92 @@ class _EditPageState extends State<EditPage> {
             children: [
               TextField(
                 controller: fullNameController,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                    labelText: 'Full Name', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Full Name',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
               ),
               TextField(
                 controller: slackUsernameController,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                    labelText: 'Slack Username', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Slack Username',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
               ),
               TextField(
                 controller: githubHandleController,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                    labelText: 'GitHub Handle', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'GitHub Handle',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
               ),
               TextField(
                 controller: bioController,
+                style: const TextStyle(color: Colors.white),
                 maxLines: 4,
                 decoration: const InputDecoration(
-                    labelText: 'Bio', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Bio',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
               ),
               TextField(
                 controller: skillsController,
+                style: const TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
-                    labelText: 'Skills', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Skills',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
               ),
               TextField(
                 controller: educationController,
+                style: const TextStyle(color: Colors.white),
                 maxLines: 2,
                 decoration: const InputDecoration(
-                    labelText: 'Education', border: OutlineInputBorder()),
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Education',
+                    border: OutlineInputBorder()),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: experienceController,
+                maxLines: null,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Experience',
+                    border: OutlineInputBorder()),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: projectsController,
+                maxLines: null,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                    labelStyle: TextStyle(color: Colors.white),
+                    labelText: 'Projects',
+                    border: OutlineInputBorder()),
               ),
               const SizedBox(
                 height: 30,
@@ -114,22 +165,22 @@ class _EditPageState extends State<EditPage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5))),
                 onPressed: () {
-                  // Prepare the data to return to the previous screen
                   Map<String, String?> data = {
                     'fullName': fullNameController.text,
                     'slackUsername': slackUsernameController.text,
                     'githubHandle': githubHandleController.text,
                     'bio': bioController.text,
                     'skills': skillsController.text,
-                    'education': educationController.text
+                    'education': educationController.text,
+                    'experience': experienceController.text,
+                    'projects': projectsController.text
                   };
 
-                  // Close the current screen and pass the data back
                   Navigator.pop(context, data);
                 },
                 child: const Text(
                   'Save',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
               )
             ],

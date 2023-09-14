@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+class ReusableTextField extends StatelessWidget {
   final TextEditingController controller;
   final InputDecoration decoration;
+  final TextStyle textStyle;
 
-  const CustomTextField({
+  const ReusableTextField({
     required this.controller,
     required this.decoration,
+    required this.textStyle,
     Key? key,
   }) : super(key: key);
 
@@ -15,6 +17,7 @@ class CustomTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       decoration: decoration,
+      style: textStyle,
     );
   }
 }

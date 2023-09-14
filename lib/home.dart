@@ -10,13 +10,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   String fullName = 'Omotosho Charles Ayomide';
   String slackUsername = 'BoB';
   String githubHandle = 'DettyBoy2022';
-  String bio = 'Flutter developer with a knack for crafting elegant and functional mobile applications. Proficient in Dart and Flutter framework, adept at UI/UX design, and experienced in integrating APIs for seamless app performance. Eager to contribute innovative solutions to enhance user experiences in the mobile space.';
+  String bio =
+      'Flutter developer with a knack for crafting elegant and functional mobile applications. Proficient in Dart and Flutter framework, adept at UI/UX design, and experienced in integrating APIs for seamless app performance. Eager to contribute innovative solutions to enhance user experiences in the mobile space.';
   String skills = 'Flutter, Dart, Firebase, HTML, CSS, JavaScript';
-  String education = 'Federal University Oye-Ekiti: Agricultural Economics and Extension';
+  String education =
+      'Federal University Oye-Ekiti: Agricultural Economics and Extension';
+  String experience =
+      '''- Circle Dodge Systems: Mobile App Developer\n   - Developed and maintained mobile applications for clients, ensuring seamless user experiences.
+   - Collaborated with cross-functional teams to design, develop, and deploy new features.
+   - Conducted code reviews and provided mentorship to junior developers.
+
+- Freelance Developer: Web & Mobile Developer\n   - Led the design team in creating intuitive and visually appealing user interfaces.
+   - Conducted user research and usability testing to refine product designs.
+   - Collaborated with developers to implement designs and iterate on user feedback.
+''';
+  String projects = ''' - E-commerce App.\n - Movie Ticketing App ''';
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +51,9 @@ class _HomeState extends State<Home> {
                       githubHandle: githubHandle,
                       bio: bio,
                       skills: skills,
-                      education: education),
+                      education: education,
+                      experience: experience,
+                      projects: projects),
                 ),
               );
 
@@ -52,6 +65,8 @@ class _HomeState extends State<Home> {
                   bio = result['bio']!;
                   skills = result['skills']!;
                   education = result['education']!;
+                  experience = result['experience']!;
+                  projects = result['projects']!;
                 });
               }
             },
@@ -153,7 +168,25 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.w500,
                     color: Colors.white),
               ),
-              CustomText(text: education)
+              CustomText(text: education),
+              const Divider(),
+              const Text(
+                'Experience :',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+              ),
+              CustomText(text: experience),
+              const Divider(),
+              const Text(
+                'Projects :',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white),
+              ),
+              CustomText(text: projects),
             ],
           ),
         ),
